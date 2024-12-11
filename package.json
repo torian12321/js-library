@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/torian12321/js-library.git"
+    "url": "git+https://github.com/torian12321/js-library.git"
   },
   "scripts": {
     "build": "tsc && vite build"
