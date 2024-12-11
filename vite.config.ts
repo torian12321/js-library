@@ -1,9 +1,20 @@
 import { resolve } from "path";
-import { defineConfig } from "vite";
+import { defineConfig, type PluginOption } from "vite";
 import dts from "vite-plugin-dts";
+import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
-  plugins: [dts({ insertTypesEntry: true })],
+  plugins: [
+    dts({ insertTypesEntry: true }),
+    visualizer({
+      gzipSize: true,
+      brotliSize: true,
+      open: true,
+      emitFile: true,
+      filename: "stats.html",
+      template: "treemap",
+    }) as PluginOption,
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
