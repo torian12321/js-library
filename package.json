@@ -1,15 +1,32 @@
 {
-  "name": "vite-library",
+  "name": "js-library",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/my-lib-js.umd.cjs",
+  "module": "./dist/my-lib-js.js",
+  "types:": "./dist/my-lib-js.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/my-lib-js.js",
+      "require": "./dist/my-lib-js.umd.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/torian12321/js-library.git"
+  },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "tsc && vite build"
   },
   "devDependencies": {
     "typescript": "~5.6.2",
     "vite": "^6.0.1"
+  },
+  "dependencies": {
+    "vite-plugin-dts": "^4.3.0"
   }
 }
